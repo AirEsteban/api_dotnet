@@ -5,8 +5,9 @@ namespace Api_dotnet.Services
 {
     public class CategoryService : ICategoryService
     {
-        private DbContext _context;
-        public CategoryService(DbContext context)
+        private MyDbContext _context;
+
+        public CategoryService(MyDbContext context)
         {
             this._context = context;
         }
