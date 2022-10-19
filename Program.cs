@@ -10,10 +10,9 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-//builder.Services.AddScoped<MyDbContext>(p => new MyDbContext(builder.Configuration.GetConnectionString("ApiDotnetDb")));
 builder.Services.AddDbContext<MyDbContext>(opt => opt.UseMySQL(builder.Configuration.GetConnectionString("ApiDotnetDb")), ServiceLifetime.Scoped,
   ServiceLifetime.Scoped);
-//builder.Services.AddScoped<ICategoryService, CategoryService>();
+builder.Services.AddScoped<ICategoryService, CategoryService>();
 
 
 var app = builder.Build();

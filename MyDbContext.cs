@@ -11,23 +11,12 @@ public class MyDbContext: Microsoft.EntityFrameworkCore.DbContext
     public DbSet<Category> Categories {get;set;}
     public DbSet<Tasks> Tasks {get;set;}
 
-    /*private readonly String _connString;
-    public MyDbContext(String connString)
-    {
-        this._connString = connString;
-    }*/
-
-    public MyDbContext(DbContextOptions<DbContext> options) : base(options)
+    public MyDbContext(DbContextOptions<MyDbContext> options) : base(options)
     {
         
     }
 
-    /*protected override void OnConfiguring(DbContextOptionsBuilder opt)
-    {
-        opt.UseMySQL(this._connString);
-    }*/
-
-    /*protected override void OnModelCreating(ModelBuilder modelBuilder)
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         List<Category> categoryInit = new List<Category>();
         categoryInit.Add(new Category() { CategoryId = Guid.Parse("fe2de405-c38e-4c90-ac52-da0540dfb4ef"), Name = "Actividades pendientes", Weight = 20});
@@ -74,6 +63,6 @@ public class MyDbContext: Microsoft.EntityFrameworkCore.DbContext
 
         });
 
-    }*/
+    }
 
 }
