@@ -9,9 +9,9 @@ namespace Api_dotnet.Controllers
     [Route("api/[controller]")]
     public class CategoryController : ControllerBase
     {
-        private CategoryService categoryService;
+        private ICategoryService categoryService;
 
-        public CategoryController(CategoryService service)
+        public CategoryController(ICategoryService service)
         {
             this.categoryService = service;
         }
@@ -28,6 +28,13 @@ namespace Api_dotnet.Controllers
         public IActionResult GetAlgo()
         {
             return Ok("Algo bien.");
+        }
+
+        [HttpGet("{id}")]
+        [Route("[action]")]
+        public Category? GetById(Guid id)
+        {
+            return categoryService.GetCategory(id);
         }
 
     }

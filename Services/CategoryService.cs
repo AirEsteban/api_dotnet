@@ -16,7 +16,7 @@ namespace Api_dotnet.Services
             return this._context.Categories;
         }
 
-        public Category? GetCategory(int id)
+        public Category? GetCategory(Guid id)
         {
             return this._context.Categories.Find(id);
         }
@@ -38,7 +38,7 @@ namespace Api_dotnet.Services
     {
         public IEnumerable<Category> GetAllCategories();
 
-        public Category? GetCategory(int id);
+        public Category? GetCategory(Guid id);
 
         public void UpdateCategory(Category newCategory);
 
